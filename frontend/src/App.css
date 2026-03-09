@@ -1,0 +1,126 @@
+.page {
+  width: min(1000px, 92vw);
+  margin: 0 auto;
+  padding: 3.2rem 0 2.8rem;
+}
+
+.leaderboard-panel,
+.analysis-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.6rem;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.42);
+}
+
+.analysis-panel {
+  margin-top: 1.25rem;
+}
+
+h1,
+h2 {
+  margin: 0;
+  text-align: center;
+  color: var(--text-main);
+  letter-spacing: 0.04em;
+  font-family: 'Sora', 'Space Grotesk', sans-serif;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(1.65rem, 3.3vw, 2.1rem);
+}
+
+h2 {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+}
+
+.subtitle {
+  margin: 0.4rem 0 1.1rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.leaderboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  gap: 0.9rem;
+}
+
+.leaderboard-card {
+  background: linear-gradient(165deg, rgba(24, 24, 24, 0.95), var(--surface-soft));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 0.9rem;
+  text-align: left;
+}
+
+.card-rank {
+  color: #b3b3b3;
+  font-size: 0.82rem;
+}
+
+.card-name {
+  color: #efefef;
+  font-weight: 700;
+  margin-top: 0.12rem;
+}
+
+.card-total {
+  color: var(--accent-strong);
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-top: 0.28rem;
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.48rem;
+  color: #999999;
+  font-size: 0.82rem;
+}
+
+.chart-wrap {
+  height: 300px;
+  margin-top: 0.35rem;
+  overflow: hidden;
+}
+
+.chart-wrap canvas {
+  max-width: 100%;
+}
+
+.helper-note {
+  margin: 0.7rem 0 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
+.status {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--text-main);
+  padding: 2rem;
+}
+
+@media (max-width: 700px) {
+  .page {
+    padding-top: 1.5rem;
+  }
+
+  .leaderboard-panel,
+  .analysis-panel {
+    padding: 1.15rem;
+  }
+
+  .chart-wrap {
+    height: 250px;
+  }
+}

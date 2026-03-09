@@ -1,0 +1,35 @@
+name: Update LeetCode Stats
+
+on:
+  schedule:
+    - cron: '*/30 * * * *' # Run every 30 minutes
+  workflow_dispatch: # Allows manual trigger button
+
+permissions:
+  contents: write
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run Update Script
+        run: python scripts/update_progress.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'LeetCode Bot'
+          git config --global user.email 'bot@noreply.github.com'
+          git add frontend/public/stats.json
+          git commit -m "Update stats [skip ci]" || exit 0
+          git push   
