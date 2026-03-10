@@ -55,6 +55,14 @@
       "easy": 22,
       "medium": 24,
       "hard": 3
+    },
+    {
+      "date": "2026-03-10",
+      "timestamp": "2026-03-10T14:37:15Z",
+      "count": 51,
+      "easy": 22,
+      "medium": 26,
+      "hard": 3
     }
   ],
   "khizer12": [
@@ -371,6 +379,14 @@
       "easy": 59,
       "medium": 65,
       "hard": 5
+    },
+    {
+      "date": "2026-03-10",
+      "timestamp": "2026-03-10T14:37:15Z",
+      "count": 130,
+      "easy": 59,
+      "medium": 66,
+      "hard": 5
     }
   ],
   "theLumberJack79": [
@@ -428,6 +444,14 @@
       "count": 98,
       "easy": 39,
       "medium": 56,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-10",
+      "timestamp": "2026-03-10T14:37:15Z",
+      "count": 100,
+      "easy": 40,
+      "medium": 57,
       "hard": 3
     }
   ]
