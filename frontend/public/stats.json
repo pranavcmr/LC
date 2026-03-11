@@ -249,6 +249,14 @@
       "easy": 56,
       "medium": 124,
       "hard": 23
+    },
+    {
+      "date": "2026-03-11",
+      "timestamp": "2026-03-11T14:38:22Z",
+      "count": 204,
+      "easy": 56,
+      "medium": 124,
+      "hard": 24
     }
   ],
   "khrshtt": [
@@ -508,6 +516,14 @@
       "count": 103,
       "easy": 40,
       "medium": 60,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-11",
+      "timestamp": "2026-03-11T14:38:22Z",
+      "count": 105,
+      "easy": 41,
+      "medium": 61,
       "hard": 3
     }
   ]
