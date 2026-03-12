@@ -23,6 +23,62 @@
       "easy": 20,
       "medium": 22,
       "hard": 2
+    },
+    {
+      "date": "2026-03-09",
+      "timestamp": "2026-03-09T15:43:13Z",
+      "count": 46,
+      "easy": 22,
+      "medium": 22,
+      "hard": 2
+    },
+    {
+      "date": "2026-03-09",
+      "timestamp": "2026-03-09T18:08:36Z",
+      "count": 47,
+      "easy": 22,
+      "medium": 23,
+      "hard": 2
+    },
+    {
+      "date": "2026-03-09",
+      "timestamp": "2026-03-09T19:44:34Z",
+      "count": 48,
+      "easy": 22,
+      "medium": 23,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-10",
+      "timestamp": "2026-03-10T11:54:14Z",
+      "count": 49,
+      "easy": 22,
+      "medium": 24,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-10",
+      "timestamp": "2026-03-10T14:37:15Z",
+      "count": 51,
+      "easy": 22,
+      "medium": 26,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-10",
+      "timestamp": "2026-03-10T14:46:45Z",
+      "count": 52,
+      "easy": 22,
+      "medium": 27,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-12",
+      "timestamp": "2026-03-12T07:32:50Z",
+      "count": 54,
+      "easy": 22,
+      "medium": 29,
+      "hard": 3
     }
   ],
   "khizer12": [
@@ -185,6 +241,46 @@
       "easy": 56,
       "medium": 122,
       "hard": 23
+    },
+    {
+      "date": "2026-03-10",
+      "timestamp": "2026-03-10T05:02:03Z",
+      "count": 202,
+      "easy": 56,
+      "medium": 123,
+      "hard": 23
+    },
+    {
+      "date": "2026-03-10",
+      "timestamp": "2026-03-10T17:35:55Z",
+      "count": 203,
+      "easy": 56,
+      "medium": 124,
+      "hard": 23
+    },
+    {
+      "date": "2026-03-11",
+      "timestamp": "2026-03-11T14:38:22Z",
+      "count": 204,
+      "easy": 56,
+      "medium": 124,
+      "hard": 24
+    },
+    {
+      "date": "2026-03-11",
+      "timestamp": "2026-03-11T20:00:43Z",
+      "count": 206,
+      "easy": 57,
+      "medium": 125,
+      "hard": 24
+    },
+    {
+      "date": "2026-03-12",
+      "timestamp": "2026-03-12T05:08:40Z",
+      "count": 207,
+      "easy": 57,
+      "medium": 126,
+      "hard": 24
     }
   ],
   "khrshtt": [
@@ -323,6 +419,46 @@
       "easy": 58,
       "medium": 63,
       "hard": 5
+    },
+    {
+      "date": "2026-03-09",
+      "timestamp": "2026-03-09T15:43:13Z",
+      "count": 129,
+      "easy": 59,
+      "medium": 65,
+      "hard": 5
+    },
+    {
+      "date": "2026-03-10",
+      "timestamp": "2026-03-10T14:37:15Z",
+      "count": 130,
+      "easy": 59,
+      "medium": 66,
+      "hard": 5
+    },
+    {
+      "date": "2026-03-10",
+      "timestamp": "2026-03-10T14:46:45Z",
+      "count": 131,
+      "easy": 59,
+      "medium": 67,
+      "hard": 5
+    },
+    {
+      "date": "2026-03-10",
+      "timestamp": "2026-03-10T17:35:55Z",
+      "count": 132,
+      "easy": 59,
+      "medium": 68,
+      "hard": 5
+    },
+    {
+      "date": "2026-03-11",
+      "timestamp": "2026-03-11T18:02:44Z",
+      "count": 134,
+      "easy": 61,
+      "medium": 68,
+      "hard": 5
     }
   ],
   "theLumberJack79": [
@@ -364,6 +500,62 @@
       "count": 96,
       "easy": 39,
       "medium": 54,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-09",
+      "timestamp": "2026-03-09T10:31:36Z",
+      "count": 97,
+      "easy": 39,
+      "medium": 55,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-09",
+      "timestamp": "2026-03-09T12:01:14Z",
+      "count": 98,
+      "easy": 39,
+      "medium": 56,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-10",
+      "timestamp": "2026-03-10T14:37:15Z",
+      "count": 100,
+      "easy": 40,
+      "medium": 57,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-10",
+      "timestamp": "2026-03-10T17:35:55Z",
+      "count": 101,
+      "easy": 40,
+      "medium": 58,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-10",
+      "timestamp": "2026-03-10T19:54:42Z",
+      "count": 102,
+      "easy": 40,
+      "medium": 59,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-11",
+      "timestamp": "2026-03-11T07:55:10Z",
+      "count": 103,
+      "easy": 40,
+      "medium": 60,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-11",
+      "timestamp": "2026-03-11T14:38:22Z",
+      "count": 105,
+      "easy": 41,
+      "medium": 61,
       "hard": 3
     }
   ]
