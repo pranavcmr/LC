@@ -300,10 +300,12 @@ function App() {
                     title: items => {
                       const first = items[0];
                       if (!first || typeof first.parsed?.x !== 'number') return '';
-                      return new Date(first.parsed.x).toLocaleDateString(undefined, {
+                      return new Date(first.parsed.x).toLocaleString(undefined, {
                         month: 'short',
                         day: 'numeric',
                         year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
                         timeZone: 'Asia/Kolkata',
                       });
                     },
