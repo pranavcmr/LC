@@ -218,6 +218,20 @@ function App() {
                   backgroundColor: '#111111',
                   borderColor: '#3a3a3a',
                   borderWidth: 1,
+                  callbacks: {
+                    title: items => {
+                      const first = items[0];
+                      if (!first || typeof first.parsed?.x !== 'number') return '';
+                      return new Date(first.parsed.x).toLocaleString(undefined, {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        timeZone: 'Asia/Kolkata',
+                      });
+                    },
+                  },
                 },
               },
               layout: {
@@ -296,20 +310,6 @@ function App() {
                   backgroundColor: '#111111',
                   borderColor: '#3a3a3a',
                   borderWidth: 1,
-                  callbacks: {
-                    title: items => {
-                      const first = items[0];
-                      if (!first || typeof first.parsed?.x !== 'number') return '';
-                      return new Date(first.parsed.x).toLocaleString(undefined, {
-                        month: 'short',
-                        day: 'numeric',
-                        year: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        timeZone: 'Asia/Kolkata',
-                      });
-                    },
-                  },
                 },
               },
               layout: {
