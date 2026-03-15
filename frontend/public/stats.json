@@ -79,6 +79,30 @@
       "easy": 22,
       "medium": 29,
       "hard": 3
+    },
+    {
+      "date": "2026-03-12",
+      "timestamp": "2026-03-12T14:37:39Z",
+      "count": 55,
+      "easy": 23,
+      "medium": 29,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-13",
+      "timestamp": "2026-03-13T07:59:21Z",
+      "count": 56,
+      "easy": 24,
+      "medium": 29,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-15",
+      "timestamp": "2026-03-15T09:49:46Z",
+      "count": 58,
+      "easy": 24,
+      "medium": 31,
+      "hard": 3
     }
   ],
   "khizer12": [
@@ -281,6 +305,14 @@
       "easy": 57,
       "medium": 126,
       "hard": 24
+    },
+    {
+      "date": "2026-03-12",
+      "timestamp": "2026-03-12T11:42:51Z",
+      "count": 208,
+      "easy": 57,
+      "medium": 127,
+      "hard": 24
     }
   ],
   "khrshtt": [
@@ -459,6 +491,38 @@
       "easy": 61,
       "medium": 68,
       "hard": 5
+    },
+    {
+      "date": "2026-03-13",
+      "timestamp": "2026-03-13T17:05:04Z",
+      "count": 135,
+      "easy": 61,
+      "medium": 69,
+      "hard": 5
+    },
+    {
+      "date": "2026-03-14",
+      "timestamp": "2026-03-14T11:48:20Z",
+      "count": 136,
+      "easy": 61,
+      "medium": 70,
+      "hard": 5
+    },
+    {
+      "date": "2026-03-14",
+      "timestamp": "2026-03-14T14:58:55Z",
+      "count": 137,
+      "easy": 61,
+      "medium": 71,
+      "hard": 5
+    },
+    {
+      "date": "2026-03-15",
+      "timestamp": "2026-03-15T11:00:45Z",
+      "count": 138,
+      "easy": 61,
+      "medium": 72,
+      "hard": 5
     }
   ],
   "theLumberJack79": [
@@ -557,6 +621,62 @@
       "easy": 41,
       "medium": 61,
       "hard": 3
+    },
+    {
+      "date": "2026-03-12",
+      "timestamp": "2026-03-12T17:38:59Z",
+      "count": 106,
+      "easy": 41,
+      "medium": 62,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-13",
+      "timestamp": "2026-03-13T17:05:04Z",
+      "count": 107,
+      "easy": 41,
+      "medium": 63,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-14",
+      "timestamp": "2026-03-14T07:51:00Z",
+      "count": 109,
+      "easy": 41,
+      "medium": 65,
+      "hard": 3
+    },
+    {
+      "date": "2026-03-14",
+      "timestamp": "2026-03-14T11:48:20Z",
+      "count": 110,
+      "easy": 41,
+      "medium": 65,
+      "hard": 4
+    },
+    {
+      "date": "2026-03-14",
+      "timestamp": "2026-03-14T14:58:55Z",
+      "count": 111,
+      "easy": 41,
+      "medium": 66,
+      "hard": 4
+    },
+    {
+      "date": "2026-03-14",
+      "timestamp": "2026-03-14T19:17:10Z",
+      "count": 112,
+      "easy": 41,
+      "medium": 67,
+      "hard": 4
+    },
+    {
+      "date": "2026-03-15",
+      "timestamp": "2026-03-15T09:49:46Z",
+      "count": 114,
+      "easy": 41,
+      "medium": 69,
+      "hard": 4
     }
   ]
 }
