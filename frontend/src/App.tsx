@@ -37,6 +37,20 @@ const toMs = (value: string): number => {
   return time;
 };
 
+const formatTimestamp = (value?: string): string => {
+  if (!value) return '-';
+  const ms = toMs(value);
+  if (!ms) return value;
+  return new Date(ms).toLocaleString(undefined, {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZone: 'Asia/Kolkata',
+  });
+};
+
 function App() {
   const [stats, setStats] = useState<Stats | null>(null);
   const [loading, setLoading] = useState(true);
@@ -96,7 +110,7 @@ function App() {
         return {
           user,
           latestCount: latest?.count ?? 0,
-          lastUpdated: latest?.timestamp ?? latest?.date ?? '-',
+          lastUpdated: formatTimestamp(latest?.timestamp ?? latest?.date),
           gain,
         };
       })
@@ -227,6 +241,7 @@ function App() {
                       return new Date(ms).toLocaleDateString(undefined, {
                         month: 'short',
                         day: 'numeric',
+                        timeZone: 'Asia/Kolkata',
                       });
                     },
                   },
@@ -281,6 +296,18 @@ function App() {
                   backgroundColor: '#111111',
                   borderColor: '#3a3a3a',
                   borderWidth: 1,
+                  callbacks: {
+                    title: items => {
+                      const first = items[0];
+                      if (!first || typeof first.parsed?.x !== 'number') return '';
+                      return new Date(first.parsed.x).toLocaleDateString(undefined, {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric',
+                        timeZone: 'Asia/Kolkata',
+                      });
+                    },
+                  },
                 },
               },
               layout: {
