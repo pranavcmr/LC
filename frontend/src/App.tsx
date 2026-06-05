@@ -26,7 +26,17 @@ type ProgressEntry = {
 
 type Stats = Record<string, ProgressEntry[]>;
 
+type ContestRatingEntry = {
+  contest: string;
+  timestamp: string;
+  rating: number;
+  ranking?: number;
+};
+
+type ContestRatings = Record<string, ContestRatingEntry[]>;
+
 const HIDDEN_FROM_RANKINGS = new Set(['khizer12']);
+const LINE_COLORS = ['#22d3ee', '#60a5fa', '#34d399', '#f59e0b', '#f472b6', '#a78bfa', '#fb7185'];
 
 const getEntryKey = (entry: ProgressEntry): string => entry.timestamp ?? entry.date;
 
@@ -55,6 +65,7 @@ const formatTimestamp = (value?: string): string => {
 
 function App() {
   const [stats, setStats] = useState<Stats | null>(null);
+  const [contestRatings, setContestRatings] = useState<ContestRatings>({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -66,21 +77,32 @@ function App() {
       }
 
       try {
-        const response = await fetch(`/stats.json?t=${Date.now()}`, {
+        const noCacheOptions = {
           cache: 'no-store',
           headers: {
             Pragma: 'no-cache',
             'Cache-Control': 'no-cache',
           },
-        });
+        } as const;
+
+        const response = await fetch(`/stats.json?t=${Date.now()}`, noCacheOptions);
 
         if (!response.ok) {
           throw new Error(`Failed to fetch stats: ${response.status}`);
         }
 
         const data = await response.json();
+
+        const ratingsResponse = await fetch(`/contest-ratings.json?t=${Date.now()}`, noCacheOptions);
+        const ratingsData = ratingsResponse.ok ? await ratingsResponse.json() : {};
+
+        if (!ratingsResponse.ok && ratingsResponse.status !== 404) {
+          console.warn(`Failed to fetch contest ratings: ${ratingsResponse.status}`);
+        }
+
         if (isMounted) {
           setStats(data);
+          setContestRatings(ratingsData);
         }
       } catch (err) {
         console.error('Error loading stats:', err);
@@ -123,8 +145,6 @@ function App() {
   const progressChartData = useMemo(() => {
     if (!stats) return null;
 
-    const lineColors = ['#22d3ee', '#60a5fa', '#34d399', '#f59e0b', '#f472b6', '#a78bfa'];
-
     return {
       datasets: Object.entries(stats).map(([user, entries], index) => {
         const points = entries
@@ -134,8 +154,8 @@ function App() {
         return {
           label: user,
           data: points,
-          borderColor: lineColors[index % lineColors.length],
-          backgroundColor: lineColors[index % lineColors.length],
+          borderColor: LINE_COLORS[index % LINE_COLORS.length],
+          backgroundColor: LINE_COLORS[index % LINE_COLORS.length],
           borderWidth: 2,
           tension: 0.26,
           spanGaps: true,
@@ -146,6 +166,39 @@ function App() {
       }),
     };
   }, [stats]);
+
+  const contestRatingChartData = useMemo(() => {
+    const datasets = Object.entries(contestRatings)
+      .map(([user, entries], index) => {
+        const points = entries
+          .filter(item => typeof item.rating === 'number')
+          .map(item => ({
+            x: toMs(item.timestamp),
+            y: item.rating,
+            contest: item.contest,
+            ranking: item.ranking,
+          }))
+          .sort((a, b) => a.x - b.x);
+
+        if (!points.length) return null;
+
+        return {
+          label: user,
+          data: points,
+          borderColor: LINE_COLORS[index % LINE_COLORS.length],
+          backgroundColor: LINE_COLORS[index % LINE_COLORS.length],
+          borderWidth: 2,
+          tension: 0.26,
+          spanGaps: true,
+          pointRadius: 3,
+          pointHoverRadius: 4,
+          clip: 12,
+        };
+      })
+      .filter(item => item !== null);
+
+    return datasets.length ? { datasets } : null;
+  }, [contestRatings]);
 
   const difficultyChartData = useMemo(() => {
     if (!stats || !leaderboard.length) return null;
@@ -159,7 +212,7 @@ function App() {
             const latest = stats[item.user][stats[item.user].length - 1];
             return latest?.easy ?? 0;
           }),
-          backgroundColor: '#9a9a9a',
+          backgroundColor: '#22c55e',
         },
         {
           label: 'Medium',
@@ -167,7 +220,7 @@ function App() {
             const latest = stats[item.user][stats[item.user].length - 1];
             return latest?.medium ?? 0;
           }),
-          backgroundColor: '#737373',
+          backgroundColor: '#facc15',
         },
         {
           label: 'Hard',
@@ -175,7 +228,7 @@ function App() {
             const latest = stats[item.user][stats[item.user].length - 1];
             return latest?.hard ?? 0;
           }),
-          backgroundColor: '#525252',
+          backgroundColor: '#ef4444',
         },
       ],
     };
@@ -351,6 +404,84 @@ function App() {
         {!hasDifficultyData && (
           <p className="helper-note">
             Difficulty split needs one fresh run of <code>scripts/update_progress.py</code> to populate easy/medium/hard.
+          </p>
+        )}
+      </section>
+
+      <section className="analysis-panel">
+        <h2>Contest Ratings</h2>
+        <p className="subtitle">Rating changes across attended LeetCode contests</p>
+        {contestRatingChartData ? (
+          <div className="chart-wrap">
+            <Line
+              data={contestRatingChartData}
+              options={{
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: { position: 'bottom', labels: { color: '#d0d0d0' } },
+                  tooltip: {
+                    backgroundColor: '#111111',
+                    borderColor: '#3a3a3a',
+                    borderWidth: 1,
+                    callbacks: {
+                      title: items => {
+                        const first = items[0];
+                        const raw = first?.raw as { contest?: string } | undefined;
+                        return raw?.contest ?? '';
+                      },
+                      label: item => {
+                        const raw = item.raw as { ranking?: number } | undefined;
+                        const rank = raw?.ranking ? `, rank ${raw.ranking}` : '';
+                        const rating = typeof item.parsed.y === 'number' ? Math.round(item.parsed.y) : '-';
+                        return `${item.dataset.label}: ${rating}${rank}`;
+                      },
+                    },
+                  },
+                },
+                layout: {
+                  padding: {
+                    left: 8,
+                    right: 12,
+                    top: 8,
+                    bottom: 4,
+                  },
+                },
+                scales: {
+                  x: {
+                    type: 'linear',
+                    ticks: {
+                      color: '#cfcfcf',
+                      autoSkip: true,
+                      maxTicksLimit: 8,
+                      callback: value => {
+                        const ms = typeof value === 'number' ? value : Number(value);
+                        if (!Number.isFinite(ms)) return '';
+                        return new Date(ms).toLocaleDateString(undefined, {
+                          month: 'short',
+                          day: 'numeric',
+                          timeZone: 'Asia/Kolkata',
+                        });
+                      },
+                    },
+                    grid: { color: 'rgba(255, 255, 255, 0.12)' },
+                  },
+                  y: {
+                    grace: '5%',
+                    ticks: {
+                      color: '#cfcfcf',
+                      stepSize: 100,
+                      precision: 0,
+                    },
+                    grid: { color: 'rgba(255, 255, 255, 0.16)' },
+                  },
+                },
+              }}
+            />
+          </div>
+        ) : (
+          <p className="helper-note">
+            Contest ratings need one fresh run of <code>scripts/update_progress.py</code> to populate data.
           </p>
         )}
       </section>

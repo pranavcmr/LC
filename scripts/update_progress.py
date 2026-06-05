@@ -10,6 +10,7 @@ FRIENDS = ["Pranav_MP", "khrshtt", "theLumberJack79", "kshitij-0712", "JEEVAN_22
 # ^^^ REPLACE THESE with real LeetCode handles!
 
 JSON_FILE = "frontend/public/stats.json"
+CONTEST_RATINGS_FILE = "frontend/public/contest-ratings.json"
 LEETCODE_URL = "https://leetcode.com/graphql"
 REQUEST_HEADERS = {
     "Content-Type": "application/json",
@@ -100,6 +101,63 @@ def get_solved_stats(username):
         return None
 
 
+def get_contest_rating_history(username):
+    query = """
+    query userContestRankingInfo($username: String!) {
+      userContestRankingHistory(username: $username) {
+        attended
+        rating
+        ranking
+        contest {
+          title
+          startTime
+        }
+      }
+    }
+    """
+    try:
+        session = build_session()
+        response = session.post(
+            LEETCODE_URL,
+            json={"query": query, "variables": {"username": username}},
+            headers=REQUEST_HEADERS,
+            timeout=20,
+        )
+        if response.status_code != 200:
+            print(f"Error fetching contest ratings for {username}: HTTP {response.status_code}")
+            return None
+
+        data = response.json()
+        if 'errors' in data:
+            print(f"Error fetching contest ratings for {username}: {data['errors']}")
+            return None
+
+        history = (data.get('data') or {}).get('userContestRankingHistory') or []
+        ratings = []
+
+        for entry in history:
+            if not entry.get('attended'):
+                continue
+
+            contest = entry.get('contest') or {}
+            start_time = contest.get('startTime')
+            if not start_time:
+                continue
+
+            timestamp = datetime.datetime.utcfromtimestamp(start_time).replace(microsecond=0).isoformat() + 'Z'
+            ratings.append({
+                "contest": contest.get('title') or "Unknown contest",
+                "timestamp": timestamp,
+                "rating": entry.get('rating'),
+                "ranking": entry.get('ranking'),
+            })
+
+        return ratings
+    except Exception as e:
+        print(f"Failed to fetch contest ratings for {username}: {e}")
+        return None
+
+
 def normalize_history(history):
     normalized = False
     for user, entries in history.items():
@@ -178,6 +236,19 @@ def main():
         print("Successfully saved stats.json")
     else:
         print("No changes detected.")
+
+    contest_users = list(dict.fromkeys(FRIENDS + list(history.keys())))
+    contest_ratings = {}
+
+    for user in contest_users:
+        ratings = get_contest_rating_history(user)
+        if ratings is not None:
+            contest_ratings[user] = ratings
+            print(f"Fetched contest ratings for {user}: {len(ratings)} contests")
+
+    with open(CONTEST_RATINGS_FILE, 'w') as f:
+        json.dump(contest_ratings, f, indent=2)
+    print("Successfully saved contest-ratings.json")
 
 if __name__ == "__main__":
     main()

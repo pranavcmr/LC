@@ -1309,6 +1309,14 @@
       "easy": 61,
       "medium": 99,
       "hard": 9
+    },
+    {
+      "date": "2026-06-05",
+      "timestamp": "2026-06-05T20:38:55Z",
+      "count": 175,
+      "easy": 66,
+      "medium": 99,
+      "hard": 10
     }
   ],
   "kshitij-0712": [
@@ -1319,6 +1327,14 @@
       "easy": 35,
       "medium": 86,
       "hard": 18
+    },
+    {
+      "date": "2026-06-05",
+      "timestamp": "2026-06-05T20:38:55Z",
+      "count": 140,
+      "easy": 35,
+      "medium": 86,
+      "hard": 19
     }
   ],
   "JEEVAN_22": [
