@@ -26,6 +26,8 @@ type ProgressEntry = {
 
 type Stats = Record<string, ProgressEntry[]>;
 
+const HIDDEN_FROM_RANKINGS = new Set(['khizer12']);
+
 const getEntryKey = (entry: ProgressEntry): string => entry.timestamp ?? entry.date;
 
 const toMs = (value: string): number => {
@@ -102,6 +104,7 @@ function App() {
     if (!stats) return [];
 
     return Object.entries(stats)
+      .filter(([user]) => !HIDDEN_FROM_RANKINGS.has(user))
       .map(([user, entries]) => {
         const latest = entries[entries.length - 1];
         const previous = entries[entries.length - 2];
