@@ -1301,6 +1301,44 @@
       "easy": 61,
       "medium": 99,
       "hard": 8
+    },
+    {
+      "date": "2026-06-05",
+      "timestamp": "2026-06-05T16:23:20Z",
+      "count": 169,
+      "easy": 61,
+      "medium": 99,
+      "hard": 9
+    }
+  ],
+  "kshitij-0712": [
+    {
+      "date": "2026-06-05",
+      "timestamp": "2026-06-05T16:23:20Z",
+      "count": 139,
+      "easy": 35,
+      "medium": 86,
+      "hard": 18
+    }
+  ],
+  "JEEVAN_22": [
+    {
+      "date": "2026-06-05",
+      "timestamp": "2026-06-05T16:29:07Z",
+      "count": 148,
+      "easy": 74,
+      "medium": 72,
+      "hard": 2
+    }
+  ],
+  "brainRot19": [
+    {
+      "date": "2026-06-05",
+      "timestamp": "2026-06-05T16:29:07Z",
+      "count": 255,
+      "easy": 82,
+      "medium": 146,
+      "hard": 27
     }
   ]
 }
