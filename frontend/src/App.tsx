@@ -212,7 +212,7 @@ function App() {
             const latest = stats[item.user][stats[item.user].length - 1];
             return latest?.easy ?? 0;
           }),
-          backgroundColor: 'rgba(74, 124, 89, 0.78)',
+          backgroundColor: '#5EEAD4',
         },
         {
           label: 'Medium',
@@ -220,7 +220,7 @@ function App() {
             const latest = stats[item.user][stats[item.user].length - 1];
             return latest?.medium ?? 0;
           }),
-          backgroundColor: 'rgba(150, 128, 54, 0.78)',
+          backgroundColor: '#C084FC',
         },
         {
           label: 'Hard',
@@ -228,7 +228,7 @@ function App() {
             const latest = stats[item.user][stats[item.user].length - 1];
             return latest?.hard ?? 0;
           }),
-          backgroundColor: 'rgba(142, 72, 72, 0.78)',
+          backgroundColor: '#6366F1',
         },
       ],
     };
