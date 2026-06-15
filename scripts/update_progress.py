@@ -1,3 +1,4 @@
+import argparse
 import requests
 import json
 import datetime
@@ -181,7 +182,24 @@ def normalize_history(history):
                     normalized = True
     return normalized
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Update LeetCode progress and contest rating data.")
+    parser.add_argument(
+        "--skip-progress",
+        action="store_true",
+        help="Skip solved-problem stats updates.",
+    )
+    parser.add_argument(
+        "--skip-contest",
+        action="store_true",
+        help="Skip contest rating history updates.",
+    )
+    return parser.parse_args()
+
+
 def main():
+    args = parse_args()
+
     # 1. Load existing data
     if os.path.exists(JSON_FILE):
         with open(JSON_FILE, 'r') as f:
@@ -200,42 +218,49 @@ def main():
     print(f"--- Running Update for {today} @ {current_timestamp} ---")
 
     # 2. Fetch new data
-    for user in FRIENDS:
-        solved = get_solved_stats(user)
-        
-        if solved is not None:
-            if user not in history:
-                history[user] = []
-            
-            last_entry = history[user][-1] if history[user] else None
-
-            has_changed = (
-                not last_entry
-                or last_entry.get('count') != solved['count']
-                or last_entry.get('easy') != solved['easy']
-                or last_entry.get('medium') != solved['medium']
-                or last_entry.get('hard') != solved['hard']
-            )
-
-            if has_changed:
-                history[user].append({
-                    "date": today,
-                    "timestamp": current_timestamp,
-                    "count": solved['count'],
-                    "easy": solved['easy'],
-                    "medium": solved['medium'],
-                    "hard": solved['hard'],
-                })
-                updated = True
-                print(f"Added {user}: {solved['count']}")
-
-    # 3. Save
-    if updated:
-        with open(JSON_FILE, 'w') as f:
-            json.dump(history, f, indent=2)
-        print("Successfully saved stats.json")
+    if args.skip_progress:
+        print("Skipping progress stats update.")
     else:
-        print("No changes detected.")
+        for user in FRIENDS:
+            solved = get_solved_stats(user)
+            
+            if solved is not None:
+                if user not in history:
+                    history[user] = []
+                
+                last_entry = history[user][-1] if history[user] else None
+
+                has_changed = (
+                    not last_entry
+                    or last_entry.get('count') != solved['count']
+                    or last_entry.get('easy') != solved['easy']
+                    or last_entry.get('medium') != solved['medium']
+                    or last_entry.get('hard') != solved['hard']
+                )
+
+                if has_changed:
+                    history[user].append({
+                        "date": today,
+                        "timestamp": current_timestamp,
+                        "count": solved['count'],
+                        "easy": solved['easy'],
+                        "medium": solved['medium'],
+                        "hard": solved['hard'],
+                    })
+                    updated = True
+                    print(f"Added {user}: {solved['count']}")
+
+        # 3. Save
+        if updated:
+            with open(JSON_FILE, 'w') as f:
+                json.dump(history, f, indent=2)
+            print("Successfully saved stats.json")
+        else:
+            print("No changes detected.")
+
+    if args.skip_contest:
+        print("Skipping contest ratings update.")
+        return
 
     contest_users = list(dict.fromkeys(FRIENDS + list(history.keys())))
     contest_ratings = {}

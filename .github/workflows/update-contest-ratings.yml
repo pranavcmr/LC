@@ -1,15 +1,15 @@
-name: Update LeetCode Stats
+name: Update LeetCode Contest Ratings
 
 on:
   schedule:
-    - cron: '0 * * * *' # Run every hour
-  workflow_dispatch: # Allows manual trigger button
+    - cron: '0 0 */4 * *' # Run every 4 days
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  update-stats:
+  update-contest-ratings:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -23,13 +23,13 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Run Update Script
-        run: python scripts/update_progress.py --skip-contest
+      - name: Run Contest Rating Update Script
+        run: python scripts/update_progress.py --skip-progress
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'LeetCode Bot'
           git config --global user.email 'bot@noreply.github.com'
-          git add frontend/public/stats.json
-          git commit -m "Update stats [skip ci]" || exit 0
-          git push   
+          git add frontend/public/contest-ratings.json
+          git commit -m "Update contest ratings [skip ci]" || exit 0
+          git push
