@@ -231,6 +231,14 @@
       "easy": 36,
       "medium": 43,
       "hard": 4
+    },
+    {
+      "date": "2026-06-16",
+      "timestamp": "2026-06-16T17:55:26Z",
+      "count": 84,
+      "easy": 37,
+      "medium": 43,
+      "hard": 4
     }
   ],
   "khizer12": [
@@ -890,6 +898,14 @@
       "count": 172,
       "easy": 68,
       "medium": 99,
+      "hard": 5
+    },
+    {
+      "date": "2026-06-16",
+      "timestamp": "2026-06-16T17:55:26Z",
+      "count": 173,
+      "easy": 68,
+      "medium": 100,
       "hard": 5
     }
   ],
@@ -1629,6 +1645,14 @@
       "easy": 91,
       "medium": 117,
       "hard": 13
+    },
+    {
+      "date": "2026-06-16",
+      "timestamp": "2026-06-16T17:55:26Z",
+      "count": 222,
+      "easy": 92,
+      "medium": 117,
+      "hard": 13
     }
   ],
   "kshitij-0712": [
@@ -1726,6 +1750,14 @@
       "count": 150,
       "easy": 35,
       "medium": 94,
+      "hard": 21
+    },
+    {
+      "date": "2026-06-16",
+      "timestamp": "2026-06-16T17:55:26Z",
+      "count": 151,
+      "easy": 35,
+      "medium": 95,
       "hard": 21
     }
   ],
@@ -1906,6 +1938,14 @@
       "count": 261,
       "easy": 82,
       "medium": 151,
+      "hard": 28
+    },
+    {
+      "date": "2026-06-16",
+      "timestamp": "2026-06-16T17:55:26Z",
+      "count": 263,
+      "easy": 82,
+      "medium": 153,
       "hard": 28
     }
   ]
