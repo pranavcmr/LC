@@ -279,6 +279,14 @@
       "easy": 42,
       "medium": 46,
       "hard": 4
+    },
+    {
+      "date": "2026-06-22",
+      "timestamp": "2026-06-22T14:27:23Z",
+      "count": 93,
+      "easy": 42,
+      "medium": 47,
+      "hard": 4
     }
   ],
   "khizer12": [
@@ -1789,6 +1797,14 @@
       "easy": 99,
       "medium": 126,
       "hard": 15
+    },
+    {
+      "date": "2026-06-22",
+      "timestamp": "2026-06-22T14:27:23Z",
+      "count": 241,
+      "easy": 99,
+      "medium": 127,
+      "hard": 15
     }
   ],
   "kshitij-0712": [
@@ -1933,6 +1949,14 @@
       "timestamp": "2026-06-21T17:19:40Z",
       "count": 156,
       "easy": 35,
+      "medium": 99,
+      "hard": 22
+    },
+    {
+      "date": "2026-06-22",
+      "timestamp": "2026-06-22T14:27:23Z",
+      "count": 157,
+      "easy": 36,
       "medium": 99,
       "hard": 22
     }
