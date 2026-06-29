@@ -28,6 +28,12 @@
       "timestamp": "2026-04-26T02:30:00Z",
       "rating": 1474.874,
       "ranking": 13458
+    },
+    {
+      "contest": "Weekly Contest 507",
+      "timestamp": "2026-06-21T02:30:00Z",
+      "rating": 1528.915,
+      "ranking": 5992
     }
   ],
   "brainRot19": [
@@ -54,6 +60,12 @@
       "timestamp": "2026-03-15T02:30:00Z",
       "rating": 1517.766,
       "ranking": 24656
+    },
+    {
+      "contest": "Biweekly Contest 185",
+      "timestamp": "2026-06-20T14:30:00Z",
+      "rating": 1471.66,
+      "ranking": 19606
     }
   ]
 }
