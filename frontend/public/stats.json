@@ -287,6 +287,14 @@
       "easy": 42,
       "medium": 47,
       "hard": 4
+    },
+    {
+      "date": "2026-06-29",
+      "timestamp": "2026-06-29T10:19:11Z",
+      "count": 95,
+      "easy": 43,
+      "medium": 48,
+      "hard": 4
     }
   ],
   "khizer12": [
@@ -2167,6 +2175,14 @@
       "easy": 37,
       "medium": 103,
       "hard": 23
+    },
+    {
+      "date": "2026-06-29",
+      "timestamp": "2026-06-29T10:19:11Z",
+      "count": 164,
+      "easy": 38,
+      "medium": 103,
+      "hard": 23
     }
   ],
   "JEEVAN_22": [
@@ -2539,6 +2555,14 @@
       "easy": 84,
       "medium": 163,
       "hard": 30
+    },
+    {
+      "date": "2026-06-29",
+      "timestamp": "2026-06-29T10:19:11Z",
+      "count": 278,
+      "easy": 84,
+      "medium": 163,
+      "hard": 31
     }
   ]
 }
