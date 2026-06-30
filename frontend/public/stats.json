@@ -295,6 +295,14 @@
       "easy": 43,
       "medium": 48,
       "hard": 4
+    },
+    {
+      "date": "2026-06-30",
+      "timestamp": "2026-06-30T13:04:24Z",
+      "count": 96,
+      "easy": 44,
+      "medium": 48,
+      "hard": 4
     }
   ],
   "khizer12": [
@@ -1997,6 +2005,14 @@
       "easy": 111,
       "medium": 143,
       "hard": 16
+    },
+    {
+      "date": "2026-06-30",
+      "timestamp": "2026-06-30T13:04:24Z",
+      "count": 272,
+      "easy": 113,
+      "medium": 143,
+      "hard": 16
     }
   ],
   "kshitij-0712": [
@@ -2457,6 +2473,14 @@
       "easy": 80,
       "medium": 102,
       "hard": 4
+    },
+    {
+      "date": "2026-06-30",
+      "timestamp": "2026-06-30T13:04:24Z",
+      "count": 187,
+      "easy": 80,
+      "medium": 102,
+      "hard": 5
     }
   ],
   "brainRot19": [
