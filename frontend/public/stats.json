@@ -311,6 +311,14 @@
       "easy": 44,
       "medium": 49,
       "hard": 4
+    },
+    {
+      "date": "2026-07-01",
+      "timestamp": "2026-07-01T19:03:52Z",
+      "count": 98,
+      "easy": 44,
+      "medium": 50,
+      "hard": 4
     }
   ],
   "khizer12": [
@@ -1049,6 +1057,14 @@
       "timestamp": "2026-06-30T18:29:23Z",
       "count": 183,
       "easy": 68,
+      "medium": 108,
+      "hard": 7
+    },
+    {
+      "date": "2026-07-01",
+      "timestamp": "2026-07-01T19:03:52Z",
+      "count": 184,
+      "easy": 69,
       "medium": 108,
       "hard": 7
     }
@@ -2060,6 +2076,14 @@
       "count": 277,
       "easy": 114,
       "medium": 146,
+      "hard": 17
+    },
+    {
+      "date": "2026-07-01",
+      "timestamp": "2026-07-01T19:03:52Z",
+      "count": 278,
+      "easy": 114,
+      "medium": 147,
       "hard": 17
     }
   ],
