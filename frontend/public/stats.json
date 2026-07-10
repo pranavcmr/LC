@@ -383,6 +383,14 @@
       "easy": 47,
       "medium": 57,
       "hard": 5
+    },
+    {
+      "date": "2026-07-10",
+      "timestamp": "2026-07-10T18:17:17Z",
+      "count": 110,
+      "easy": 48,
+      "medium": 57,
+      "hard": 5
     }
   ],
   "khizer12": [
@@ -3016,6 +3024,14 @@
       "count": 208,
       "easy": 88,
       "medium": 111,
+      "hard": 9
+    },
+    {
+      "date": "2026-07-10",
+      "timestamp": "2026-07-10T18:17:17Z",
+      "count": 210,
+      "easy": 88,
+      "medium": 113,
       "hard": 9
     }
   ],
