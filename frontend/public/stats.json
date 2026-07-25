@@ -1451,6 +1451,14 @@
       "easy": 92,
       "medium": 133,
       "hard": 12
+    },
+    {
+      "date": "2026-07-25",
+      "timestamp": "2026-07-25T00:00:23Z",
+      "count": 238,
+      "easy": 93,
+      "medium": 133,
+      "hard": 12
     }
   ],
   "theLumberJack79": [
@@ -3704,6 +3712,14 @@
       "count": 239,
       "easy": 107,
       "medium": 122,
+      "hard": 10
+    },
+    {
+      "date": "2026-07-25",
+      "timestamp": "2026-07-25T00:00:23Z",
+      "count": 240,
+      "easy": 107,
+      "medium": 123,
       "hard": 10
     }
   ],
